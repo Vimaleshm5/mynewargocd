@@ -4,7 +4,7 @@ metadata:
   name: argocd-application-controller-role
 rules:
 - apiGroups: [""]
-  resources: ["services"]
+  resources: ["pods","services"]
   verbs: ["get", "list", "watch"]
 
 ---
