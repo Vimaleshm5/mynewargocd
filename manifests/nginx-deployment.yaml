@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: netflix-clone
+        image: devopsinsiders/netflix-clone
         ports:
         - containerPort: 80
 
