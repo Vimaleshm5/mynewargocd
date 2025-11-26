@@ -17,6 +17,6 @@ spec:
         env:
           - name: CONNECTION_STRING
             value: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlserverone.database.windows.net,1433;Database=adminDB;Uid=sqluser;Pwd=Hello@123456;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"                                          
-        image: registryk8ss.azurecr.io/gettasks
+        image: registryk8ss.azurecr.io/gettasks:latest
         ports:
         - containerPort: 8000
