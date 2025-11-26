@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-  - host: delete-task.devopsinsiders.online
+  - host: ""
     http:
       paths:
       - pathType: Prefix

@@ -1,10 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: get-tasks-ingress
-  annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
+  name: todo-ui-ingress
 spec:
+  ingressClassName: azure-application-gateway
   rules:
   - host: ""
     http:
@@ -13,6 +12,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: get-tasks
+            name: todo-ui
             port: 
               number: 80

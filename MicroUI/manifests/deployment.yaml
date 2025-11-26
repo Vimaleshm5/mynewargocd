@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-ui
+  labels:
+    app: todo-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo-ui
+  template:
+    metadata:
+      labels:
+        app: todo-ui
+    spec:
+      containers:
+      - name: todo-ui
+        image: registryk8ss.azurecr.io/ui 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80   # agar tu Dockerfile me 3000 expose kar raha hai to yahan 3000 kar de

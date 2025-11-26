@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: get-tasks
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: get-tasks
@@ -17,6 +17,6 @@ spec:
         env:
           - name: CONNECTION_STRING
             value: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlserverone.database.windows.net,1433;Database=adminDB;Uid=sqluser;Pwd=Hello@123456;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"                                          
-        image: devopsinsiders/get-tasks
+        image: registryk8ss.azurecr.io/gettasks
         ports:
         - containerPort: 8000
