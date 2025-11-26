@@ -14,20 +14,39 @@ stages:
   jobs:
   - job: build_push
     displayName: Build and Push Images
+    strategy:
+      matrix:
+        service1:
+          folder: "AddTaskTodoMicroservice"
+          imageName: "addtask"
+        service2:
+          folder: "DeleteTaskTodoMicroservice"
+          imageName: "deletetask"
+        service3:
+          folder: "GetTasksTodoMicroservice"
+          imageName: "gettasks"
+        service4:
+          folder: "MicroUI"
+          imageName: "ui"
     steps:
       - task: Docker@2
-        displayName: Dockerlogin
         inputs:
           containerRegistry: 'acr-connection'
           command: 'login'
       - task: Docker@2
-        displayName: dockerbuild
+        displayName: Build Docker Image
         inputs:
-          containerRegistry: 'acr-connection'
-          command: 'build'
-          Dockerfile: '**/Dockerfile'
+          command: build
+          Dockerfile: '$(folder)/Dockerfile'
+          repository: '$(imageName)'
+          tags: |
+            latest
+            buildContext: '$(folder)'
+
       - task: Docker@2
-        displayName: dockerpish
+        displayName: Push Docker Image
         inputs:
-          containerRegistry: 'acr-connection'
-          command: 'push'
+          command: push
+          repository: '$(imageName)'
+          tags: |
+            latest  
