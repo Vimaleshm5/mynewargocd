@@ -3,10 +3,11 @@ kind: Ingress
 metadata:
   name: delete-task-ingress
   annotations:
-    kubernetes.io/ingress.class: addon-http-application-routing
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: / 
 spec:
   rules:
-  - host: ""
+  - host: deletetask.xrocketx.info
     http:
       paths:
       - pathType: Prefix
