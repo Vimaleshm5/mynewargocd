@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: todo-ui
-        image: registryk8ss.azurecr.io/uii:v1
+        image: registryk8ss.azurecr.io/uiii:v2
         imagePullPolicy: Always
         ports:
         - containerPort: 80   # agar tu Dockerfile me 3000 expose kar raha hai to yahan 3000 kar de
