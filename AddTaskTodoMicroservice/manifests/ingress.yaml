@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: add-task-ingress
   annotations:
-    kubernetes.io/ingress.class: addon-http-application-routing  
+    nginx.ingress.kubernetes.io/rewrite-target: /  
 spec:
   rules:
   - host: ""
